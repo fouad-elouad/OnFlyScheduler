@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnFlyScheduler", "OnFlyScheduler\OnFlyScheduler.csproj", "{FA1DED59-0075-4FE3-BB42-C8039F0922FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnFlyScheduler.UnitTest", "OnFlyScheduler.UnitTest\OnFlyScheduler.UnitTest.csproj", "{C850B731-B027-4296-AAA4-A3A138D6D516}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA1DED59-0075-4FE3-BB42-C8039F0922FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA1DED59-0075-4FE3-BB42-C8039F0922FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA1DED59-0075-4FE3-BB42-C8039F0922FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA1DED59-0075-4FE3-BB42-C8039F0922FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C850B731-B027-4296-AAA4-A3A138D6D516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C850B731-B027-4296-AAA4-A3A138D6D516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C850B731-B027-4296-AAA4-A3A138D6D516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C850B731-B027-4296-AAA4-A3A138D6D516}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E39D2A48-08F7-4FE2-8F72-EC02FB240215}
+	EndGlobalSection
+EndGlobal
