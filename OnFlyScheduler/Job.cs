@@ -211,7 +211,7 @@ namespace OnFlyScheduler
 
                 catch (TaskCanceledException ex)
                 {
-                    _logger?.Error($"Job: {this.EndUserFriendlyName}, TaskCanceledException with time out {TimeOut.TotalSeconds} seconds" );
+                    _logger?.Error($"Job: {this.EndUserFriendlyName}, TaskCanceledException with time out {TimeOut.TotalSeconds} seconds");
                     State State = (State)state;
                     State.IsCancelled = true;
                     raisedException = ex;
@@ -220,7 +220,7 @@ namespace OnFlyScheduler
 
                 catch (Exception ex)
                 {
-                    _logger?.Error($"Job: {this.EndUserFriendlyName}, {ex} Exception caught." );
+                    _logger?.Error($"Job: {this.EndUserFriendlyName}, {ex} Exception caught.");
                     raisedException = ex;
                     OnExceptionCallBack?.Invoke(ex);
                 }

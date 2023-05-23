@@ -21,6 +21,14 @@ namespace OnFlyScheduler.SpecificJobs
         void Schedule(DateTime executionDateTime, bool isImmediate);
 
         /// <summary>
+        /// Schedules the job with the specified due time.
+        /// </summary>
+        /// <param name="dueTime">The dueTime.</param>
+        /// <param name="isImmediate">if set to <c>true</c> [Execute the job immediately].</param>
+        /// <exception cref="JobAlreadyScheduledException"></exception>
+        void Schedule(TimeSpan dueTime, bool isImmediate);
+
+        /// <summary>
         /// Set time out
         /// </summary>
         /// <param name="timeOut">The time out</param>
@@ -86,7 +94,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>ISingleRecurrenceJob object.</returns>
         public new ISingleRecurrenceJob WithTimeOut(TimeSpan timeOut)
         {
-            return (ISingleRecurrenceJob) base.WithTimeOut(timeOut);
+            return (ISingleRecurrenceJob)base.WithTimeOut(timeOut);
         }
 
         /// <summary>
@@ -96,7 +104,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>ISingleRecurrenceJob object.</returns>
         public new ISingleRecurrenceJob WithOnExceptionCallBack(OnExceptionCallBack onExceptionCallBack)
         {
-            return (ISingleRecurrenceJob) base.WithOnExceptionCallBack(onExceptionCallBack);
+            return (ISingleRecurrenceJob)base.WithOnExceptionCallBack(onExceptionCallBack);
         }
 
         /// <summary>
@@ -106,7 +114,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>ISingleRecurrenceJob object.</returns>
         public new ISingleRecurrenceJob WithOnStartCallBack(OnStartCallBack onStartCallBack)
         {
-            return (ISingleRecurrenceJob) base.WithOnStartCallBack(onStartCallBack);
+            return (ISingleRecurrenceJob)base.WithOnStartCallBack(onStartCallBack);
         }
 
         /// <summary>
@@ -116,7 +124,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>ISingleRecurrenceJob object.</returns>
         public new ISingleRecurrenceJob WithOnEndCallBack(OnEndCallBack onEndCallBack)
         {
-            return (ISingleRecurrenceJob) base.WithOnEndCallBack(onEndCallBack);
+            return (ISingleRecurrenceJob)base.WithOnEndCallBack(onEndCallBack);
         }
 
         /// <summary>
@@ -127,24 +135,37 @@ namespace OnFlyScheduler.SpecificJobs
         /// <exception cref="JobAlreadyScheduledException"></exception>
         public void Schedule(DateTime executionDateTime, bool isImmediate)
         {
-            try
-            {
-                if (this.IsScheduled)
-                    throw new JobAlreadyScheduledException();
+            if (this.IsScheduled)
+                throw new JobAlreadyScheduledException();
 
-                this.DueTime = DueTimeFrom(executionDateTime, isImmediate);
-                this.FirstExecution = DateTime.Now.Add(DueTime);
-                this.Period = new TimeSpan(-1);
+            this.DueTime = DueTimeFrom(executionDateTime, isImmediate);
+            this.FirstExecution = DateTime.Now.Add(DueTime);
+            this.Period = new TimeSpan(-1);
 
-                this.Timer = new Timer(TimerCallback, State, DueTime, Period);
-                this.IsScheduled = true;
-                this.IsSingleRecurrence = true;
-                JobManager.TryAdd(this);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            this.Timer = new Timer(TimerCallback, State, DueTime, Period);
+            this.IsScheduled = true;
+            this.IsSingleRecurrence = true;
+            JobManager.TryAdd(this);
+        }
+
+        /// <summary>
+        /// Schedules the job with the specified due time.
+        /// </summary>
+        /// <param name="dueTime">The dueTime.</param>
+        /// <param name="isImmediate">if set to <c>true</c> [Execute the job immediately].</param>
+        /// <exception cref="JobAlreadyScheduledException"></exception>
+        public void Schedule(TimeSpan dueTime, bool isImmediate)
+        {
+            if (this.IsScheduled)
+                throw new JobAlreadyScheduledException();
+
+            this.FirstExecution = DateTime.Now.Add(DueTime);
+            this.Period = new TimeSpan(-1);
+
+            this.Timer = new Timer(TimerCallback, State, DueTime, Period);
+            this.IsScheduled = true;
+            this.IsSingleRecurrence = true;
+            JobManager.TryAdd(this);
         }
 
         /// <summary>
@@ -156,12 +177,7 @@ namespace OnFlyScheduler.SpecificJobs
         private TimeSpan DueTimeFrom(DateTime executionDateTime, bool isImmediate)
         {
             DateTime now = DateTime.Now;
-            TimeSpan dueTime = new TimeSpan(0);
-            if (!isImmediate && executionDateTime > now)
-            {
-                dueTime = executionDateTime - now;
-            }
-            return dueTime;
+            return (!isImmediate && executionDateTime > now) ? executionDateTime - now : new TimeSpan(0);
         }
     }
 }

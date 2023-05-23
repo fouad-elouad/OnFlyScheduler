@@ -138,7 +138,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>ICustomRecurrenceJob object.</returns>
         public ISingleRecurrenceJob ScheduleNewSingleRecurrenceJob(DateTime executionDateTime, bool isImmediate)
         {
-            string uniqueName = this.EndUserFriendlyName + "[" +DateTime.Now.ToBinary()+ "]";
+            string uniqueName = this.EndUserFriendlyName + "[" + DateTime.Now.ToBinary() + "]";
             ISingleRecurrenceJob singleRecurrenceJob = new SingleRecurrenceJob(this.CallBackMethod, uniqueName, this._logger)
                                                             .WithTimeOut(this.TimeOut)
                                                             .WithOnStartCallBack(this.OnStartCallBack)

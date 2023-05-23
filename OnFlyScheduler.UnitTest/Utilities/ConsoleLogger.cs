@@ -13,7 +13,7 @@ namespace OnFlyScheduler.UnitTest.Utilities
 
         public void Debug(string msg)
         {
-            Trace.WriteLine(nameof(Debug)+ ": " + msg);
+            Trace.WriteLine(nameof(Debug) + ": " + msg);
         }
         public void Info(string msg)
         {

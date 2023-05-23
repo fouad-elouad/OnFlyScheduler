@@ -9,7 +9,7 @@ namespace OnFlyScheduler
     /// </summary>
     public static class JobManager
     {
-        private static IList<Job> SchedulerList;
+        private static readonly IList<Job> SchedulerList;
 
         /// <summary>
         /// Initializes the <see cref="JobManager"/> class.

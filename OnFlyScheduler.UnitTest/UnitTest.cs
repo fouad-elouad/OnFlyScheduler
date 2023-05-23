@@ -35,7 +35,7 @@ namespace OnFlyScheduler.UnitTest
             Assert.IsFalse(runningJob.State.IsRunning);
 
             ThreadSleepSeconds(2); // wait Task to start
-            
+
             Assert.AreEqual(0, counter);
             Assert.IsTrue(runningJob.State.IsRunning);
 
@@ -124,7 +124,7 @@ namespace OnFlyScheduler.UnitTest
             customRecurrenceJob.Dispose();
 
             ISingleRecurrenceJob singleRecurrenceJob = customRecurrenceJob.ScheduleNewSingleRecurrenceJob(DateTime.Now.AddSeconds(10), false);
-            ThreadSleepSeconds(6); 
+            ThreadSleepSeconds(6);
             Assert.AreEqual(0, counter);
 
             ThreadSleepSeconds(5);

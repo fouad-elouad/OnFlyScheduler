@@ -91,7 +91,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>IDailyRecurrenceJob object.</returns>
         public new IDailyRecurrenceJob WithTimeOut(TimeSpan timeOut)
         {
-            return (IDailyRecurrenceJob) base.WithTimeOut(timeOut);
+            return (IDailyRecurrenceJob)base.WithTimeOut(timeOut);
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>IDailyRecurrenceJob object.</returns>
         public new IDailyRecurrenceJob WithOnExceptionCallBack(OnExceptionCallBack onExceptionCallBack)
         {
-            return (IDailyRecurrenceJob) base.WithOnExceptionCallBack(onExceptionCallBack);
+            return (IDailyRecurrenceJob)base.WithOnExceptionCallBack(onExceptionCallBack);
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>IDailyRecurrenceJob object.</returns>
         public new IDailyRecurrenceJob WithOnStartCallBack(OnStartCallBack onStartCallBack)
         {
-            return (IDailyRecurrenceJob) base.WithOnStartCallBack(onStartCallBack);
+            return (IDailyRecurrenceJob)base.WithOnStartCallBack(onStartCallBack);
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace OnFlyScheduler.SpecificJobs
         /// <returns>IDailyRecurrenceJob object.</returns>
         public new IDailyRecurrenceJob WithOnEndCallBack(OnEndCallBack onEndCallBack)
         {
-            return (IDailyRecurrenceJob) base.WithOnEndCallBack(onEndCallBack);
+            return (IDailyRecurrenceJob)base.WithOnEndCallBack(onEndCallBack);
         }
 
         /// <summary>
@@ -187,9 +187,9 @@ namespace OnFlyScheduler.SpecificJobs
                 dueTime = executionDateTime - now;
             else
             {
-                 dateTime = now.Date.AddHours(executionDateTime.Hour)
-                                       .AddMinutes(executionDateTime.Minute)
-                                       .AddSeconds(executionDateTime.Second);
+                dateTime = now.Date.AddHours(executionDateTime.Hour)
+                                      .AddMinutes(executionDateTime.Minute)
+                                      .AddSeconds(executionDateTime.Second);
                 if (dateTime > now)
                     dueTime = dateTime - now;
                 else
