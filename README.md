@@ -72,10 +72,11 @@ ISingleRecurrenceJob singleRecurrenceJob = new SingleRecurrenceJob(Run_Task, nam
             singleRecurrenceJob.Schedule(TimeSpan.FromHours(2), false); // 2 hours delay
  ```
 
-   ```csharp
+ ```csharp
             singleRecurrenceJob.Schedule(new DateTime(2023,01,01,00,00,00), false); // specific time
  ```
-    ```csharp
+ 
+ ```csharp
             singleRecurrenceJob.Schedule(new DateTime(), true); // Executes the job immediately
  ```
  
@@ -83,7 +84,9 @@ ISingleRecurrenceJob singleRecurrenceJob = new SingleRecurrenceJob(Run_Task, nam
 
 With the daily recurrence job feature, you can schedule tasks to be executed daily at a specific time. This is ideal for tasks that need to be performed on a daily basis, such as generating reports, performing maintenance activities or webservices call.
 
- ```csharp
+
+```csharp
+
  CallBackMethod Run_Task = (TimeSpan timeOut) => { }; // Task to execute
 
 IDailyRecurrenceJob dailyRecurrenceJob = new DailyRecurrenceJob(Run_Task, nameof(Run_Task), new ConsoleLogger())
@@ -93,13 +96,13 @@ IDailyRecurrenceJob dailyRecurrenceJob = new DailyRecurrenceJob(Run_Task, nameof
                 .WithOnExceptionCallBack(jobState.OnException);
 
             dailyRecurrenceJob.Schedule(new DateTime(2023,01,01,12,30,00)); // specific day time
- ```
+```
 
 ### Custom Recurrence Job
 
 The library provides flexibility for defining custom recurrence patterns based on your specific needs. You can configure the library to execute tasks at specific intervals or according to any other custom recurrence pattern required by your application.
 
- ```csharp
+```csharp
 
 ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task, nameof(Run_Task), new ConsoleLogger())
                 .WithTimeOut(new TimeSpan(0, 1, 0))
@@ -108,11 +111,11 @@ ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task, nam
 
             var customPeriod = TimeSpan.FromDays(7); // weekly period
             customRecurrenceJob.Schedule(TimeSpan.FromSeconds(1), customPeriod);
- ```
+```
 
 ### Manual Scheduling from Recurrence Job
 
- ```csharp
+```csharp
 
 ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task, nameof(Run_Task), new ConsoleLogger())
                 .WithTimeOut(new TimeSpan(0, 1, 0))
@@ -122,8 +125,10 @@ ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task, nam
             var customPeriod = TimeSpan.FromHours(12); // 12h period
             customRecurrenceJob.Schedule(TimeSpan.FromHours(1), customPeriod);
 
-            ISingleRecurrenceJob singleRecurrenceJob = customRecurrenceJob.ScheduleNewSingleRecurrenceJob(new DateTime(), true); // Executes the job immediately
- ```
+            ISingleRecurrenceJob singleRecurrenceJob = customRecurrenceJob
+            .ScheduleNewSingleRecurrenceJob(new DateTime(), true); // Executes the job immediately
+            
+```
 
 ## Support
 If you are having problems, please let us know by [raising a new issue](https://github.com/fouad-elouad/OnFlyScheduler/issues/new/choose).
