@@ -45,13 +45,10 @@ The library includes a JobManager component that keeps track of all scheduled jo
  
  2- Open the solution file in Visual Studio 2019+: The solution file is located in the root directory of the project. Open this file in Visual Studio to start working with the project.
  
- 3- Restore NuGet Packages
+ 3- Build the project in release mode
  
- 4- Build and run the project
+ 5- Reference the class library dll in your application.
  
- 5- Modify the project as needed for your own application: This template is designed to be a starting point for your application. Modify the class files, add new dependencies, or create new files as needed for your own application.
- 
-
 ### Single Recurrence Job
 
  The library allows you to schedule a task that will be executed once at a specific time or after a specified delay. This feature is useful for tasks that need to be performed at a specific moment or after a certain interval.
