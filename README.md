@@ -7,7 +7,7 @@ OnFlyScheduler allows you to schedule and execute tasks with ease. It offers a r
 It provides a flexible and dynamic solution for managing and orchestrating tasks in real-time.
 
 ## Features
-- [x] Target .NET 4.5.2
+- [x] Target .NET Standard 2.0
 - [x] One-time tasks
 - [x] Recurring tasks
 - [x] Delayed tasks
@@ -43,7 +43,7 @@ The library includes a JobManager component that keeps track of all scheduled jo
 
  1- Clone or download the repository: To get started, clone or download the repository to your local machine.
  
- 2- Open the solution file in Visual Studio 2019+: The solution file is located in the root directory of the project. Open this file in Visual Studio to start working with the project.
+ 2- Open the solution file in Visual Studio 2022: The solution file is located in the root directory of the project. Open this file in Visual Studio to start working with the project.
  
  3- Build the project in release mode
  

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace OnFlyScheduler.UnitTest.Utilities
 {
@@ -8,7 +7,7 @@ namespace OnFlyScheduler.UnitTest.Utilities
         public bool? IsCancelled;
         public bool OnJobEndExecuted;
         public bool OnExceptionExecuted;
-        public Exception Exception;
+        public Exception? Exception;
 
 
         public void OnJobStart(Job job)

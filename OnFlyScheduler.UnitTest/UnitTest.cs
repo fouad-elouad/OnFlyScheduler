@@ -1,10 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OnFlyScheduler.Abstract;
 using OnFlyScheduler.SpecificJobs;
 using OnFlyScheduler.UnitTest.Utilities;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OnFlyScheduler.UnitTest
 {
@@ -17,10 +13,7 @@ namespace OnFlyScheduler.UnitTest
         {
             JobState jobState = new JobState();
             int counter = 0;
-            CallBackMethod Run_Task_SucceededJob = (TimeSpan timeOut) =>
-            {
-                ThreadSleepSeconds(10); counter++;
-            };
+            void Run_Task_SucceededJob(TimeSpan timeOut){ ThreadSleepSeconds(10); counter++; }
 
             ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task_SucceededJob, nameof(Run_Task_SucceededJob), new ConsoleLogger())
                 .WithTimeOut(new TimeSpan(0, 1, 0))
@@ -54,7 +47,7 @@ namespace OnFlyScheduler.UnitTest
         {
             JobState jobState = new JobState();
             int counter = 0;
-            CallBackMethod Run_Task_SucceededJob = (TimeSpan timeOut) => { counter++; };
+            void Run_Task_SucceededJob(TimeSpan timeOut) { counter++; }
 
             ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task_SucceededJob, nameof(Run_Task_SucceededJob), new ConsoleLogger())
                 .WithTimeOut(new TimeSpan(0, 1, 0))
@@ -83,7 +76,7 @@ namespace OnFlyScheduler.UnitTest
         {
             JobState jobState = new JobState();
             int counter = 0;
-            CallBackMethod Run_Task_SucceededJob = (TimeSpan timeOut) => { counter++; };
+            void Run_Task_SucceededJob(TimeSpan timeOut) { counter++; }
 
             ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task_SucceededJob, nameof(Run_Task_SucceededJob), new ConsoleLogger())
                 .WithTimeOut(new TimeSpan(0, 1, 0))
@@ -109,7 +102,7 @@ namespace OnFlyScheduler.UnitTest
         {
             JobState jobState = new JobState();
             int counter = 0;
-            CallBackMethod Run_Task_SucceededJob = (TimeSpan timeOut) => { counter++; };
+            void Run_Task_SucceededJob(TimeSpan timeOut) { counter++; }
 
             ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task_SucceededJob, nameof(Run_Task_SucceededJob), new ConsoleLogger())
                 .WithTimeOut(new TimeSpan(0, 1, 0))
@@ -136,7 +129,7 @@ namespace OnFlyScheduler.UnitTest
         {
             JobState jobState = new JobState();
 
-            CallBackMethod Run_Task_8s = (TimeSpan timeOut) => ThreadSleepSeconds(8);
+            void Run_Task_8s(TimeSpan timeOut) => ThreadSleepSeconds(8);
 
             ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task_8s, nameof(Run_Task_8s), new ConsoleLogger())
                 .WithTimeOut(new TimeSpan(0, 0, 4)) // time out in 4 seconds
@@ -162,7 +155,7 @@ namespace OnFlyScheduler.UnitTest
         {
             JobState jobState = new JobState();
 
-            CallBackMethod Run_Task_Exception = (TimeSpan timeOut) => throw new NullReferenceException();
+            void Run_Task_Exception(TimeSpan timeOut) => throw new NullReferenceException();
 
             ICustomRecurrenceJob customRecurrenceJob = new CustomRecurrenceJob(Run_Task_Exception, nameof(Run_Task_Exception), new ConsoleLogger())
                 .WithTimeOut(new TimeSpan(0, 0, 10))

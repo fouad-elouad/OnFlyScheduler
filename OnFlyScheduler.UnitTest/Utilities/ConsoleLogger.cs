@@ -1,5 +1,4 @@
 ﻿using OnFlyScheduler.Abstract;
-using System;
 using System.Diagnostics;
 
 namespace OnFlyScheduler.UnitTest.Utilities
