@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnFlyScheduler", "OnFlyScheduler\OnFlyScheduler.csproj", "{ED2C16E1-CACC-4984-A3DC-4B4E7B6E586A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnFlyScheduler", "OnFlyScheduler\OnFlyScheduler.csproj", "{ED2C16E1-CACC-4984-A3DC-4B4E7B6E586A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnFlyScheduler.UnitTest", "OnFlyScheduler.UnitTest\OnFlyScheduler.UnitTest.csproj", "{6A2D8323-F41D-4D68-972B-70518475D176}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnFlyScheduler.UnitTest", "OnFlyScheduler.UnitTest\OnFlyScheduler.UnitTest.csproj", "{6A2D8323-F41D-4D68-972B-70518475D176}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
