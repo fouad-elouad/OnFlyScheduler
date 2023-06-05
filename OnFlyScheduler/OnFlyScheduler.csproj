@@ -2,6 +2,27 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <PackageId>OnFlyScheduler</PackageId>
+    <Title>OnFlyScheduler</Title>
+    <Version>1.1.0</Version>
+    <Authors>Fouad ELOUAD</Authors>
+    <Company>Fouad ELOUAD</Company>
+    <Description>a efficient task scheduling class library designed for .NET applications. It offers a range of features to simplify task scheduling, including support for single recurrence jobs, daily recurrence jobs, and custom recurrence jobs. It provides configuration options for task timeout, pre-task execution, post-task execution, exception handling</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/fouad-elouad/OnFlyScheduler</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
